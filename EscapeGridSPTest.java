@@ -14,7 +14,7 @@ public class EscapeGridSPTest {
 		
 		EscapeGridSP test = new EscapeGridSP(grid2, 2);
 		
-		test.shortestPath();
+		System.out.println(test.shortestPath().size()-1);
 
 	}
 
