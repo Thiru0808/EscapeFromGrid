@@ -51,13 +51,11 @@ public class EscapeGridSP {
 					parents.put(child, currentNode);
 					int val = child.getValue();
 					if (val == 0) {
+						temp.add(child);
 						if(child.getX() == 0 || child.getY() == 0)  {
-							temp.add(child);
 							reachedDestination = true;
 							end = child;
 							break;
-						}else {
-							temp.add(child);
 						}
 					}
 				}
