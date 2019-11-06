@@ -119,7 +119,7 @@ public class EscapeGridSP {
 				String value = nodes[row][column] + "";
 
 				// mark path with red X
-				for (int i = 1; i < path.size() - 1; i++) {
+				for (int i = 1; i < path.size(); i++) {
 					Node node = path.get(i);
 					if (node.getX() == row && node.getY() == column) {
 						value = ANSI_RED + "X" + ANSI_RESET;
