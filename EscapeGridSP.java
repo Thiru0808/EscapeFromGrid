@@ -36,6 +36,9 @@ public class EscapeGridSP {
 		if (start == null) {
 			throw new RuntimeException("Start node is not found!!!");
 		}
+		if(isEdgeNode(start, startVal)) {
+			throw new RuntimeException("Start node is found as edge!!!");
+		}
 
 		List<Node> temp = new ArrayList<Node>();
 		temp.add(start);
@@ -52,7 +55,7 @@ public class EscapeGridSP {
 					int val = child.getValue();
 					if (val == 0) {
 						temp.add(child);
-						if(child.getX() == 0 || child.getY() == 0)  {
+						if(isEdgeNode(child, 0))  {
 							reachedDestination = true;
 							end = child;
 							break;
@@ -100,7 +103,13 @@ public class EscapeGridSP {
 
 		return children;
 	}
-
+	private boolean isEdgeNode(Node child, int chkVal){
+		if(child!=null) {
+			List<Node> children = getChildern(child);
+			return ((child.getValue()==chkVal) && children.size()==3);
+		}
+		return false;
+	}
 	private void printPath(List<Node> path) {
 		String ANSI_RESET = "";
 		String ANSI_RED = "";
